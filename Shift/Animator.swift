@@ -262,7 +262,7 @@ public final class Animator {
     private func addFromViewSnapshot(fromView: UIView, container: UIView) -> UIView {
         let fromViewShapshot = fromView.snapshotView(afterScreenUpdates: false) ?? UIView()
         container.addSubview(fromViewShapshot)
-        fromViewShapshot.frame = fromView.frame
+        fromViewShapshot.frame = container.convert(fromView.frame, from: fromView.superview)
         return fromViewShapshot
     }
     
